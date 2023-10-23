@@ -8,7 +8,7 @@ Coordenadas = namedtuple('Coordenadas','latitud, longitud')
 
     
 #funcion para el cálculo de la calcular_distancia
-def calcula_distancia(coordenada1, coordenada2):
+def calcula_distancia(c1, c2):
     '''
     Toma como entrada las coordenadas de dos puntos y devuelve la distancia euclídea. 
     @param coordenada1: coordenadas de un punto.
@@ -18,7 +18,8 @@ def calcula_distancia(coordenada1, coordenada2):
     @return: La distancia euclídea entre los dos puntos
     @rtype: float
     '''
-    return math.sqrt((coordenada2.latitud - coordenada1.latitud)**2 + (coordenada2.longitud - coordenada1.longitud)**2)
+    return math.sqrt((c1.latitud - c1.latitud)**2 + 
+                     (c2.longitud - c1.longitud)**2)
 
 
 def calcular_media_coordenadas (coordenadas):
@@ -33,7 +34,7 @@ def calcular_media_coordenadas (coordenadas):
     y la media de las longitudes.
     @rtype: Coordenadas (float, float)
     '''
-    num_elem=len(coordenadas)
+    num_elem = len(coordenadas)
     media_latitud = sum(c.latitud for c in coordenadas)/num_elem
     media_longitud = sum(c.longitud for c in coordenadas)/num_elem
     return Coordenadas(media_latitud, media_longitud)
